@@ -1,0 +1,72 @@
+package recursion;
+
+public class Main {
+    public static void main(String[] args) {
+    	int n=4;
+    	int a=7;
+    	int b=15;
+    	int x=12;
+        int y=4;
+    	System.out.println(sumNumbers(n));
+    	System.out.println(multNumbers(n));
+    	System.out.println(productOfOdds(n));
+    	System.out.println(countDigits(n));
+    	System.out.println(divide(a,b));
+    	//System.out.println(rest(a,b));
+    	System.out.println(isMultiple(x,y));
+
+
+
+    	
+    }
+    public static int sumNumbers(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return  n+sumNumbers(n - 1);
+    }
+    public static int multNumbers(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return  n*sumNumbers(n - 1);
+    }
+    public static int productOfOdds(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n % 2 != 0) {
+            return n * productOfOdds(n - 2);
+        }
+        return -1;
+}
+    public static int countDigits(int n) {
+        if (n >= 0 && n <= 9) {
+            return 1;
+        }
+        return 1 + countDigits(n / 10);
+    }
+    public static int divide(int a,int b) {
+    	if(b>a) {
+    		return 1+divide(a,b-1);
+    	}
+    	return 0;
+    	}
+    public static int rest(int a,int b) {
+    	if(b/a==0) {
+    		return 0;//לא הצלחתי
+    	}
+    	return 1 + rest(a,b-1);
+    	}
+    public static boolean isMultiple(int x, int y) {
+        if (x == 0) {
+            return true;
+        }
+        if (x < y) {
+            return false;
+        }
+        return isMultiple(x - y, y);
+    }
+    //8 לא הצלחתי
+//9 לא הצלחתי    
+}
